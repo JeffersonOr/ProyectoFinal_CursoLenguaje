@@ -15,7 +15,7 @@ public class ValidacionTiempoFecha {
     public static void main(String[] args) {
         // Ejemplo de fechas y horas
         LocalDateTime inicio = LocalDateTime.of(2024, 1, 1, 10, 0);
-        LocalDateTime fin = LocalDateTime.of(2024, 1, 1, 12, 30);
+        LocalDateTime fin = LocalDateTime.of(2024, 1, 1, 23, 30);
 
         // Validar que la fecha de inicio sea anterior a la fecha de fin
         if (inicio.isAfter(fin)) {
@@ -24,6 +24,7 @@ public class ValidacionTiempoFecha {
             // Calcular la duración entre las dos fechas
             Duration duracion = Duration.between(inicio, fin);
             System.out.println("Duración: " + duracion.toHours() + " horas " + duracion.toMinutesPart() + " minutos");
+            System.out.println(fin);
         }
     }
 }
