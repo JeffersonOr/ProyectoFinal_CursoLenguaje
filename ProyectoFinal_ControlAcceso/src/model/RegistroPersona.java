@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -12,30 +13,32 @@ import java.util.Date;
  */
 public class RegistroPersona extends Persona {
 
-    private Date fechaIngreso;
-    private Date fechaSalida;
+    private LocalDateTime fechaIngreso;
+    private LocalDateTime fechaSalida;
 
-    public RegistroPersona(Date fechaIngreso, Date fechaSalida, String nombres, String apellidos, int documento, String ocupacion, String estado) {
+    public RegistroPersona(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String nombres, String apellidos, int documento, String ocupacion, String estado) {
         super(nombres, apellidos, documento, ocupacion, estado);
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
     }
 
-    public Date getFechaIngreso() {
+    public LocalDateTime getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDateTime fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Date getFechaSalida() {
+    public LocalDateTime getFechaSalida() {
         return fechaSalida;
     }
 
-    public void setFechaSalida(Date fechaSalida) {
+    public void setFechaSalida(LocalDateTime fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
+
+    
 
 
     

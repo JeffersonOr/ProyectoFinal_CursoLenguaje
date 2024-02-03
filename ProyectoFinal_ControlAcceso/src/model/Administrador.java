@@ -34,6 +34,5 @@ public class Administrador extends Persona {
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
-    
-    
+
 }
