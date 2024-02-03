@@ -134,8 +134,8 @@ public class ValidarRegistro extends javax.swing.JFrame {
         
         int documento = Integer.parseInt(txt_documento.getText());
         ControllerRegistroPersona controllerRegistroPersona = new ControllerRegistroPersona();
-        RegistroPersona respuesta = controllerRegistroPersona.readUsers(documento);
-        if (respuesta !=null) {
+        boolean respuesta = controllerRegistroPersona.validarIngreso(documento);
+        if (respuesta) {
             
             registroSalida.setVisible(true);
         } else {

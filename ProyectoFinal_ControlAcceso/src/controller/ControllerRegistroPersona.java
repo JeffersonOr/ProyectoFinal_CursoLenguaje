@@ -64,6 +64,7 @@ public class ControllerRegistroPersona {
                 
                 System.out.println("Fecha salida: "+listRegistroPersonas.get(i).getFechaSalida()+" Fecha ingreso: "+listRegistroPersonas.get(i).getFechaIngreso());
                 System.out.println("Duracion estadia: ");
+                System.out.println(listRegistroPersonas.get(i).getEstado());
             }
             
             
@@ -83,7 +84,7 @@ public class ControllerRegistroPersona {
                     return true;
                 }
 
-                return true;
+                return false;
 
             }
         }
