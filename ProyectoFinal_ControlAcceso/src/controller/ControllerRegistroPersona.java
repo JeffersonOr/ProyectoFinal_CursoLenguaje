@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -51,24 +52,26 @@ public class ControllerRegistroPersona {
 
     ///////////////Metodo para registrar la salida de la persona
     public boolean cambiarEstado(int code) {
-        
-        
-        
+
         boolean aux = validarIngreso(code);
-        System.out.println("Entro al controlador "+ "aux: "+aux+" parametro documento: "+code);
+        System.out.println("Entro al controlador " + "aux: " + aux + " parametro documento: " + code);
+        Duration duracion;
+
         if (aux) {
             for (int i = 0; i < listRegistroPersonas.size(); i++) {
+
                 listRegistroPersonas.get(i).setEstado("Retirado");
                 listRegistroPersonas.get(i).setFechaSalida(LocalDateTime.now());
+                duracion = Duration.between(listRegistroPersonas.get(i).getFechaIngreso(), listRegistroPersonas.get(i).getFechaSalida());
+                listRegistroPersonas.get(i).setDuracionEstadia("Tiempo duracion: " + + duracion.toDaysPart() + " dias " + duracion.toHours() + " horas " + duracion.toMinutesPart() + " minutos " + duracion.toSecondsPart() + " Segundos");
                 Singleton.getInstance().writeObject(listRegistroPersonas);
+
+                System.out.println("Fecha salida: " + listRegistroPersonas.get(i).getFechaSalida() + " Fecha ingreso: " + listRegistroPersonas.get(i).getFechaIngreso());
                 
-                System.out.println("Fecha salida: "+listRegistroPersonas.get(i).getFechaSalida()+" Fecha ingreso: "+listRegistroPersonas.get(i).getFechaIngreso());
-                System.out.println("Duracion estadia: ");
                 System.out.println(listRegistroPersonas.get(i).getEstado());
+                System.out.println(listRegistroPersonas.get(i).getDuracionEstadia());
             }
-            
-            
-            
+
             return true;
 
         }

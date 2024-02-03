@@ -194,18 +194,19 @@ public class Registro extends javax.swing.JFrame {
         String estado = "Ingresado";
         LocalDateTime fechaIngreso = LocalDateTime.now();
         LocalDateTime fechaSalida = null;
+        String duracionEstadia = null;
 
-        RegistroPersona registroPersona = new RegistroPersona(fechaIngreso, fechaSalida, nombre, apellido, documento, ocupacion, estado);
+        RegistroPersona registroPersona = new RegistroPersona(fechaIngreso, fechaSalida, duracionEstadia, nombre, apellido, documento, ocupacion, estado);
         ControllerRegistroPersona controllerRegistroPersona = new ControllerRegistroPersona();
         boolean respuesta = controllerRegistroPersona.createUsers(registroPersona);
         if (respuesta) {
             JOptionPane.showMessageDialog(null, "Bienvenido " + registroPersona.getNombres() + registroPersona.getEstado());
-            System.out.println(registroPersona.getEstado()+registroPersona.getDocumento()+registroPersona.getFechaIngreso() + registroPersona.getFechaSalida() );
+            System.out.println(registroPersona.getEstado() + registroPersona.getDocumento() + registroPersona.getFechaIngreso() + registroPersona.getFechaSalida());
         } else {
             JOptionPane.showMessageDialog(null, "Error >:O");
         }
-        
-        
+
+
     }//GEN-LAST:event_btn_ingresoActionPerformed
 
     /**

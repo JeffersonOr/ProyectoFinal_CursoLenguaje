@@ -15,11 +15,13 @@ public class RegistroPersona extends Persona {
 
     private LocalDateTime fechaIngreso;
     private LocalDateTime fechaSalida;
+    private String duracionEstadia;
 
-    public RegistroPersona(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String nombres, String apellidos, int documento, String ocupacion, String estado) {
+    public RegistroPersona(LocalDateTime fechaIngreso, LocalDateTime fechaSalida, String duracionEstadia, String nombres, String apellidos, int documento, String ocupacion, String estado) {
         super(nombres, apellidos, documento, ocupacion, estado);
         this.fechaIngreso = fechaIngreso;
         this.fechaSalida = fechaSalida;
+        this.duracionEstadia = duracionEstadia;
     }
 
     public LocalDateTime getFechaIngreso() {
@@ -37,6 +39,16 @@ public class RegistroPersona extends Persona {
     public void setFechaSalida(LocalDateTime fechaSalida) {
         this.fechaSalida = fechaSalida;
     }
+
+    public String getDuracionEstadia() {
+        return duracionEstadia;
+    }
+
+    public void setDuracionEstadia(String duracionEstadia) {
+        this.duracionEstadia = duracionEstadia;
+    }
+
+   
 
     
 
