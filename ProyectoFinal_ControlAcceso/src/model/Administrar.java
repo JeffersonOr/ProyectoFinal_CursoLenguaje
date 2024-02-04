@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import singleton.Singleton;
 
-/**
+/**Ventana del administrador para que vea
+ *El tiempo real de la persona
  *
- * @author mariana
  */
 public class Administrar extends javax.swing.JFrame {
 
@@ -109,10 +109,12 @@ public class Administrar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_actualizarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_actualizarTablaActionPerformed
-        modelTableUsers = (DefaultTableModel) tb_adminRegistro.getModel();
-        Object[] ob = new Object[6];
-        cleanTable();
-        for (int i = 0; i < listRegistroPersonas.size(); i++) {
+        modelTableUsers = (DefaultTableModel) tb_adminRegistro.getModel();/////////Asigmos el modelo de la tabla
+        
+        
+        Object[] ob = new Object[6];///Object para crear los espacios para las variables
+        cleanTable();/////Metodo para limpiar los datos de la tabla cuando se actualice con el boton
+        for (int i = 0; i < listRegistroPersonas.size(); i++) {/////////Rellemos los espacios con la lista de registroPersonas
 
             ob[0] = listRegistroPersonas.get(i).getNombres();
             ob[1] = listRegistroPersonas.get(i).getDocumento();

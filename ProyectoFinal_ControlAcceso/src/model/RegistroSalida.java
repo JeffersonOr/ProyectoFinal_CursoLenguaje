@@ -8,9 +8,9 @@ import controller.ControllerAdministrador;
 import controller.ControllerRegistroPersona;
 import javax.swing.JOptionPane;
 
-/**
+/**Ventana registroSalida para registrar la salida de la persona
  *
- * @author mariana
+ *
  */
 public class RegistroSalida extends javax.swing.JFrame {
 
@@ -113,10 +113,11 @@ public class RegistroSalida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registroSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registroSalidaActionPerformed
-        boolean respuesta = controllerRegistroPersona.medirTiempoEstadia (documento);
+        boolean respuesta = controllerRegistroPersona.medirTiempoEstadia (documento);///Almacenamos la respuesta del metodo en una variable de tipo boolean
+        
+        ///////////validamos con una condicion para ver si realmente se cambió el estado de persona con un mensaje en pantalla
         if (respuesta) {
-            
-            
+
             JOptionPane.showMessageDialog(null, "Su salida ha sido registrada con exito :)");
             System.out.println();
         } else {

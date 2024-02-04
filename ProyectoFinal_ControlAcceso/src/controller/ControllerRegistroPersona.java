@@ -11,21 +11,24 @@ import java.util.ArrayList;
 import model.RegistroPersona;
 import singleton.Singleton;
 
-/**
+/**Este es el controlador de la clase RegistroPersona
+ *Aqui se alojan los metodos personalzados que maneja
  *
- * @author Usuario
  */
 public class ControllerRegistroPersona {
 
+    ///////////Creamos una lista de tipo "RegistroPersona" para almacenar los registros 
     ArrayList<RegistroPersona> listRegistroPersonas;
 
+    ///////////Constructor que se encargará de dar valor
     public ControllerRegistroPersona() {
 
+        /////////Le damos la instancia a la lista que se encuentra creada en la clase singleton para no crear una nueva instacia
         listRegistroPersonas = Singleton.getInstance().getListRegistroPersona();
 
     }
 
-    /////////////////Create personas
+    /////////////////Metodo para crear el ingreso de la persona. Este metodo guardá los datos de la persona en la lista
     public boolean registrarIngreso (RegistroPersona registroPersona) {
         RegistroPersona aux = readUsers(registroPersona.getDocumento());
 
@@ -38,7 +41,7 @@ public class ControllerRegistroPersona {
         return false;
     }
 
-    ///////////////Read Personas
+    ///////////////Este metodo se encargar de encontrar a la persona registrada
     public RegistroPersona readUsers(int code) {
 
         for (int i = 0; i < listRegistroPersonas.size(); i++) {
@@ -55,21 +58,24 @@ public class ControllerRegistroPersona {
 
         boolean aux = validarIngreso(code);
         System.out.println("Entro al controlador " + "aux: " + aux + " parametro documento: " + code);
+        
+        /////////Creamos una variable de tipo duracion
         Duration duracion;
 
         if (aux) {
             for (int i = 0; i < listRegistroPersonas.size(); i++) {
 
-                listRegistroPersonas.get(i).setEstado("Retirado");
-                listRegistroPersonas.get(i).setFechaSalida(LocalDateTime.now());
-                duracion = Duration.between(listRegistroPersonas.get(i).getFechaIngreso(), listRegistroPersonas.get(i).getFechaSalida());
-                listRegistroPersonas.get(i).setDuracionEstadia("Tiempo duracion: " + + duracion.toDaysPart() + " dias " + duracion.toHours() + " horas " + duracion.toMinutesPart() + " minutos " + duracion.toSecondsPart() + " Segundos");
+                listRegistroPersonas.get(i).setEstado("Retirado");///////Cambia el estado de la persona a Retirado
+                listRegistroPersonas.get(i).setFechaSalida(LocalDateTime.now());//////////Establece la fecha de salida
+                duracion = Duration.between(listRegistroPersonas.get(i).getFechaIngreso(), listRegistroPersonas.get(i).getFechaSalida());////Se almacena en la varible duracion la diferencia entre la fecha ingreso y fecha salida
+                listRegistroPersonas.get(i).setDuracionEstadia("Tiempo duracion: " + + duracion.toDaysPart() + " dias " + duracion.toHours() + " horas " + duracion.toMinutesPart() + " minutos " + duracion.toSecondsPart() + " Segundos");/////Se guarda la duracion fragmentado en dias, horas, minutos y segundos en el atributo
                 Singleton.getInstance().writeObject(listRegistroPersonas);
-
-                System.out.println("Fecha salida: " + listRegistroPersonas.get(i).getFechaSalida() + " Fecha ingreso: " + listRegistroPersonas.get(i).getFechaIngreso());
                 
+                ////////////Se implementan estos souts para validar en la consola si los objetos continuen bien la informacion
+                System.out.println("Fecha salida: " + listRegistroPersonas.get(i).getFechaSalida() + " Fecha ingreso: " + listRegistroPersonas.get(i).getFechaIngreso());
                 System.out.println(listRegistroPersonas.get(i).getEstado());
                 System.out.println(listRegistroPersonas.get(i).getDuracionEstadia());
+                /////////////////////////////////////////////////////////////
             }
 
             return true;
@@ -95,16 +101,4 @@ public class ControllerRegistroPersona {
         return false;
     }
 
-//    /////////////Delete Users
-//    public boolean deleteUsers(User user) {
-//        User aux = readUsers(user.getIdPerson());
-//        for (int i = 0; i < listUsers.size(); i++) {
-//            if (aux != null) {
-//                listUsers.remove(i);
-//                Singleton.getInstance().writeObject(listUsers);
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
 }

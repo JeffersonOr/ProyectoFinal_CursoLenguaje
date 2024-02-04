@@ -6,9 +6,8 @@ package controller;
 
 import model.Administrador;
 
-/**
- *
- * @author Usuario
+/**Este es el controlador del administrador
+ *Aqui se alojaran los metodos personalizados que utilizará
  */
 public class ControllerAdministrador {
 

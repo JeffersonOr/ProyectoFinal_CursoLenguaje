@@ -11,15 +11,13 @@ import java.time.temporal.TemporalQueries;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author mariana
+/**Ventana de registro para registrar los datos de la persona
+ *Y tambien su ingreso
+ * 
  */
 public class Registro extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Registro
-     */
+
     public Registro() {
         initComponents();
         setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
@@ -187,21 +185,30 @@ public class Registro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_iniciarSesionActionPerformed
 
     private void btn_ingresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresoActionPerformed
+        
+        ///////////////////Valores de entrada
         String nombre = txt_nombre.getText();
         String apellido = txt_apellido.getText();
         int documento = Integer.parseInt(txt_documento.getText());
         String ocupacion = cb_ocupacion.getSelectedItem().toString();
-        String estado = "Ingresado";
-        LocalDateTime fechaIngreso = LocalDateTime.now();
-        LocalDateTime fechaSalida = null;
-        String duracionEstadia = null;
+        String estado = "Ingresado";//////////Establecemos automaticamente su estado a ingresado 
+        LocalDateTime fechaIngreso = LocalDateTime.now();/////////Establecemos internamente su fecha de entrada cuando se registre
+        LocalDateTime fechaSalida = null;///////Establecemos null para no registrar su salida por el momento
+        String duracionEstadia = null;/////////Establecemos null para no calcular su duracion por el momento
+        /////////////////////////////////////////////////////
 
-        RegistroPersona registroPersona = new RegistroPersona(fechaIngreso, fechaSalida, duracionEstadia, nombre, apellido, documento, ocupacion, estado);
-        ControllerRegistroPersona controllerRegistroPersona = new ControllerRegistroPersona();
-        boolean respuesta = controllerRegistroPersona.registrarIngreso (registroPersona);
+        RegistroPersona registroPersona = new RegistroPersona(fechaIngreso, fechaSalida, duracionEstadia, nombre, apellido, documento, ocupacion, estado);//////Objeto que se encargará de almacenar los datos de entrada
+        ControllerRegistroPersona controllerRegistroPersona = new ControllerRegistroPersona();////Instaciamos el controlador registroPersona
+        boolean respuesta = controllerRegistroPersona.registrarIngreso (registroPersona);///Registramos a la persona con el metodo registrarIngreso y almecenamos la respuesta en un variable de tipo boolean
+        
+        /////////Validamos la respuesta y a raiz de esto enviamos un mensaje en pantalla
         if (respuesta) {
             JOptionPane.showMessageDialog(null, "Bienvenido " + registroPersona.getNombres());
+            
+            //////sout de prube para validar si las varibles se almacenan correctamenre
             System.out.println(registroPersona.getEstado() + registroPersona.getDocumento() + registroPersona.getFechaIngreso() + registroPersona.getFechaSalida());
+            //////////////////////////
+            
         } else {
             JOptionPane.showMessageDialog(null, "Error >:O");
         }

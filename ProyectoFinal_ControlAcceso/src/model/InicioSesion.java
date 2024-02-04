@@ -7,9 +7,9 @@ package model;
 import controller.ControllerAdministrador;
 import javax.swing.JOptionPane;
 
-/**
+/**Pestaña para el inicio de sesion
+ *del administrador
  *
- * @author mariana
  */
 public class InicioSesion extends javax.swing.JFrame {
     
@@ -145,17 +145,20 @@ public class InicioSesion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_iniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarSesionActionPerformed
+        ///////Variables de entrada
         String usuario = txt_usuario.getText();
         String contrasenia = txt_contrasenia.getText();
+        ////////////////
         
-        boolean respuesta = controllerAdministrador.iniciarSesion(usuario, contrasenia);
+        boolean respuesta = controllerAdministrador.iniciarSesion(usuario, contrasenia);///Usamos el controlador iniciarSesion del administrador y almacenamos la respuesta en un variable de tipo boolean
         
-        if (respuesta) {
+        ///////////Validamos la respuesta
+        if (respuesta) {/////true-->inició sesion y lo redirige la pestaña adminstrar
             
             JOptionPane.showMessageDialog(null, "Bienvenido " + usuario);
             Administrar administrar = new Administrar();
             administrar.setVisible(true);
-        } else {
+        } else {////false-->mensaje en pantalla
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorreto :c");
         }
     }//GEN-LAST:event_btn_iniciarSesionActionPerformed
