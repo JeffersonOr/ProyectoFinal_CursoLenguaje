@@ -113,7 +113,7 @@ public class RegistroSalida extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_registroSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registroSalidaActionPerformed
-        boolean respuesta = controllerRegistroPersona.cambiarEstado(documento);
+        boolean respuesta = controllerRegistroPersona.medirTiempoEstadia (documento);
         if (respuesta) {
             
             

@@ -26,7 +26,7 @@ public class ControllerRegistroPersona {
     }
 
     /////////////////Create personas
-    public boolean createUsers(RegistroPersona registroPersona) {
+    public boolean registrarIngreso (RegistroPersona registroPersona) {
         RegistroPersona aux = readUsers(registroPersona.getDocumento());
 
         if (aux == null) {
@@ -51,7 +51,7 @@ public class ControllerRegistroPersona {
     }
 
     ///////////////Metodo para registrar la salida de la persona
-    public boolean cambiarEstado(int code) {
+    public boolean medirTiempoEstadia (int code) {
 
         boolean aux = validarIngreso(code);
         System.out.println("Entro al controlador " + "aux: " + aux + " parametro documento: " + code);
